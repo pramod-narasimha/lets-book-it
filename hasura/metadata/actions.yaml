@@ -1,0 +1,23 @@
+actions:
+- name: fileUpload
+  definition:
+    kind: synchronous
+    handler: http://172.17.0.1:3000/fileUpload
+- name: signup
+  definition:
+    kind: synchronous
+    handler: http://172.17.0.1:3000/signup
+- name: createCartItem
+  definition:
+    kind: synchronous
+    handler: http://172.17.0.1:3000/createCartItem
+    forward_client_headers: true
+custom_types:
+  enums: []
+  input_objects: []
+  objects:
+  - name: fileOutput
+  - name: signupOutput
+  - name: InsertUsersOneDerivedOutput
+  - name: CreateCartItemOutput
+  scalars: []

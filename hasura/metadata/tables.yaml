@@ -1,0 +1,6 @@
+- table:
+    schema: public
+    name: files
+- table:
+    schema: public
+    name: users

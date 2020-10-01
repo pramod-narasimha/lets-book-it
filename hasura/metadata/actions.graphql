@@ -1,0 +1,22 @@
+type Mutation {
+  fileUpload(name: String!, type: String!, base64str: String!): fileOutput
+  signup(name: String!, username: String!, password: String!): signupOutput
+  createCartItem(product_id: Int!, store_id: Int!): CreateCartItemOutput
+}
+
+type fileOutput {
+  file_path: String!
+}
+
+type signupOutput {
+  id: Int!
+  token: String!
+}
+
+type InsertUsersOneDerivedOutput {
+  id: Int!
+}
+
+type CreateCartItemOutput {
+  id: Int!
+}
