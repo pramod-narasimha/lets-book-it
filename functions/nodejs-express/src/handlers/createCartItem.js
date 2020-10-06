@@ -25,7 +25,7 @@ query ($product_id: Int!, $store_id: Int!) {
 
 // execute the parent mutation in Hasura
 const execute = async (variables, operation) => {
-  const fetchResponse = await fetch("http://localhost:8080/v1/graphql", {
+  const fetchResponse = await fetch("http://172.17.0.1:8080/v1/graphql", {
     method: "POST",
     body: JSON.stringify({
       query: operation,
@@ -64,14 +64,14 @@ const handler = async (req, res) => {
 
   // execute the Hasura operation
   const { data, errors } = await execute(
-    { product_id, store_id, user_id },
+    { product_id, store_id, user_id, new_stock: stock_available },
     HASURA_OPERATION
   );
 
   // if Hasura operation errors, then throw error
   if (errors) {
     return res.status(400).json({
-      message: errors.message,
+      message: errors,
     });
   }
 
